@@ -29,58 +29,47 @@ def hod_human_X(any_list):
     return any_list
 
 
-def hod_bot_O(any_list):
-    win_coord = ((0, 1, 2), (3, 4, 5), (6, 7, 8), (0, 3, 6), (1, 4, 7), (2, 5, 8), (0, 4, 8), (2, 4, 6))
-    for each in win_coord:
-        if any_list[each[0]] == any_list[each[1]]:
-            if any_list[each[0]] == any_list[each[1]] == 'O':
-                if str(any_list[each[2]]) not in 'XO':
-                    any_list[each[2]] = 'O'
-                    print(f'Бот выбрал ячейку: {each[2] + 1}')
-                    return any_list
-                    break
-            else:
-                if str(any_list[each[2]]) not in 'XO':
-                    any_list[each[2]] = 'O'
-                    print(f'Бот выбрал ячейку: {each[2] + 1}')
-                    return any_list
-                    break
-
-        if any_list[each[1]] == any_list[each[2]]:
-            if any_list[each[1]] == any_list[each[2]] == 'O':
-                if str(any_list[each[0]]) not in 'XO':
-                    any_list[each[0]] = 'O'
-                    print(f'Бот выбрал ячейку: {each[0] + 1}')
-                    return any_list
-                    break
-            else:
-                if str(any_list[each[0]]) not in 'XO':
-                    any_list[each[0]] = 'O'
-                    print(f'Бот выбрал ячейку: {each[0] + 1}')
-                    return any_list
-                    break
-
-        if any_list[each[0]] == any_list[each[2]]:
-            if any_list[each[0]] == any_list[each[2]] == 'O':
-                if str(any_list[each[1]]) not in 'XO':
-                    any_list[each[1]] = 'O'
-                    print(f'Бот выбрал ячейку: {each[1] + 1}')
-                    return any_list
-                    break
-            else:
-                if str(any_list[each[1]]) not in 'XO':
-                    any_list[each[1]] = 'O'
-                    print(f'Бот выбрал ячейку: {each[1] + 1}')
-                    return any_list
-                    break
-
-    hod_O = randint(1, 9)
-    if str(any_list[hod_O - 1]) not in 'XO':
-        any_list[hod_O - 1] = 'O'
+def hod_bot_O(my_list):
+    tuple_victory = ((0, 1, 2), (3, 4, 5), (6, 7, 8), (0, 3, 6), (1, 4, 7), (2, 5, 8), (0, 4, 8), (2, 4, 6))
+    for j in tuple_victory:
+        for i in tuple_victory:
+            if my_list[i[0]] == my_list[i[1]] == 'O' and str(my_list[i[2]]) not in 'XO':
+                my_list[i[2]] = 'O'
+                print(f'Ход бота {i[2] + 1}')
+                return my_list
+                break
+            elif my_list[i[1]] == my_list[i[2]] == 'O' and str(my_list[i[0]]) not in 'XO':
+                my_list[i[0]] = 'O'
+                print(f'Ход бота {i[0] + 1}')
+                return my_list
+                break
+            elif my_list[i[0]] == my_list[i[2]] == 'O' and str(my_list[i[1]]) not in 'XO':
+                my_list[i[1]] = 'O'
+                print(f'Ход бота {i[1] + 1}')
+                return my_list
+                break
+        if my_list[j[0]] == my_list[j[1]] and str(my_list[j[2]]) not in 'XO':
+            my_list[j[2]] = 'O'
+            print(f'Ход бота {j[2] + 1}')
+            return my_list
+            break
+        if my_list[j[1]] == my_list[j[2]] and str(my_list[j[0]]) not in 'XO':
+            my_list[j[0]] = 'O'
+            print(f'Ход бота {j[0] + 1}')
+            return my_list
+            break
+        if my_list[j[0]] == my_list[j[2]] and str(my_list[j[1]]) not in 'XO':
+            my_list[j[1]] = 'O'
+            print(f'Ход бота {j[1] + 1}')
+            return my_list
+            break
+    enter_hod = randint(0, 8)
+    if str(my_list[enter_hod]) not in 'XO':
+        my_list[enter_hod] = 'O'
     else:
-        return hod_bot_O(any_list)
-    print(f'Бот выбрал ячейку: {hod_O}')
-    return any_list
+        return bot(my_list)
+    print(f'Ход бота {enter_hod+1}')
+    return my_list
 
 
 def control_win(any_list):
