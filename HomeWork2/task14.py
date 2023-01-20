@@ -5,11 +5,12 @@
 
 n = int(input('Введите число n (где n - количество чисел в списке): '))
 
-result = []
+result = [round((1+1/i)**i, 2) for i in range(1, n+1)] # List complication
 sum = 0
-for i in range(1, n+1):
-    result.append(round((1+1/i)**i, 2))
-    sum += result[i-1]
+summa = lambda a, b: a + b # Lambda
+
+for i in result:
+    sum = summa(sum, i)
 
 print(result)
 print(f'Сумма {sum}')
