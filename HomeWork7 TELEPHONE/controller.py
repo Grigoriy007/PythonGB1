@@ -21,7 +21,11 @@ def start():
                 new = list(view.new_contact())
                 db.update(new)
             case 5:
-                pass
+                choise_name = view.seek1()
+                choise_phone = view.seek2()
+                choise_number = view.new_contact_change1()
+                choise2 = view.new_contact_change2(choise_number)
+                db.change(choise_name, choise_phone, choise_number, choise2)
             case 6:
                 pass
             case 7:

@@ -22,7 +22,6 @@ class Database:
 
 
     def search(self, search:str):
-        global phone_book
         search_results = []
         for line in self.phone_book:
             for field in line:
@@ -35,8 +34,17 @@ class Database:
     def save(self):
         data = []
         for line in self.phone_book:
-           data.append(';'.join(line))
+            data.append(';'.join(line))
         with open(self.path, 'w', encoding='UTF-8') as file:
             data = file.write('\n'.join(data))
+
+    def change(self, choise_name: str, choise_phone: str, number: int, choise2: str):
+        for line in self.phone_book:
+            for field in line:
+                if (choise_name and choise_phone) in line:
+                    line[number-1] = choise2
+                    break
+        return self.phone_book
+
 
 db_phone = Database()

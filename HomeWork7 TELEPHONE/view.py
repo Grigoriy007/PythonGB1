@@ -34,6 +34,38 @@ def new_contact():
     comment = input('Введите комментарий: ')
     return name, phone, comment
 
+def new_contact_change1():
+    line = input ('Укажите какую информацию вы хотите изменить, где 1 - это ФИО, 2 - это номер телефона, 3 - это комментарий:  ')
+    try:
+        line = int(line)
+    except:
+        print('Некорректный ввод. Введите заново простое число от 1 до 3')
+        return new_contact_change1()
+    if 0 > line > 3:
+        print('Некорректный ввод. Введено больше Введите заново простое число от 1 до 3')
+        return new_contact_change1()
+    return line
+
+def seek1():
+    name = input('Введите имя и фамилию контакта: ')
+    return name
+
+def seek2():
+    phone = input('Введите номер телефона: ')
+    return phone
+
+
+def new_contact_change2(line):
+    if line == 1:
+        name = input('Введите имя и фамилию контакта: ')
+        return name
+    if line == 2:
+        phone = input('Введите номер телефона: ')
+        return phone
+    if line == 3:
+        comment = input('Введите комментарий: ')
+        return comment
+
 def find_contact():
     search = input('Введите искомое значение: ')
     return search
