@@ -10,7 +10,8 @@ class Database:
         with open(self.path, 'r', encoding='UTF-8') as file:
             data = file.readlines()
             for line in data:
-                self.phone_book.append(line.strip().split(';'))
+                if not line.isspace():
+                    self.phone_book.append(line.strip().split(';'))
 
 
     def get(self):
@@ -44,6 +45,19 @@ class Database:
                 if (choise_name and choise_phone) in line:
                     line[number-1] = choise2
                     break
+        return self.phone_book
+
+    def del_contact (self, choise_name: str, choise_phone: str, number: int):
+        for line in self.phone_book:
+            for field in line:
+                if (choise_name and choise_phone) in line:
+                    if number == 4:
+                        for del_all in range(len(line)):
+                            line.pop(0)
+                    else:
+                        line.pop(number-1)
+                    break
+
         return self.phone_book
 
 
