@@ -41,28 +41,31 @@ def new_contact():
 
 def new_contact_change1():
     line = input ('Укажите какую информацию вы хотите изменить, где 1 - это ФИО, 2 - это номер телефона, 3 - это комментарий ')
+    if 0 > int(line) > 3:
+        print('Некорректный ввод. Введено больше Введите заново простое число от 1 до 3')
+        return new_contact_change1()
     try:
         line = int(line)
+        return line
     except:
         print('Некорректный ввод. Введите заново простое число от 1 до 3')
         return new_contact_change1()
-    if 0 > line > 3:
-        print('Некорректный ввод. Введено больше Введите заново простое число от 1 до 3')
-        return new_contact_change1()
-    return line
+
 
 
 def delete_contact():
     line = input ('Укажите какую информацию вы хотите удалить, где 1 - это ФИО, 2 - это номер телефона, 3 - это комментарий, 4 - это весь конакт полностью:  ')
+    if int(line) > 4:
+        print('Некорректный ввод. Введено больше Введите заново простое число от 1 до 4')
+        return delete_contact()
     try:
         line = int(line)
+        return line
     except:
-        print('Некорректный ввод. Введите заново простое число от 1 до 3')
-        return new_contact_change1()
-    if 0 > line > 3:
-        print('Некорректный ввод. Введено больше Введите заново простое число от 1 до 3')
-        return new_contact_change1()
-    return line
+        print('Некорректный ввод. Введите заново простое число от 1 до 4')
+        return delete_contact()
+
+
 
 
 
