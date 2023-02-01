@@ -2,6 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/TelegramBOTwork" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/TelegramBOTwork/control_dir/Scripts" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/TelegramBOTwork/pythonProject2" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/TelegramBOTwork/pythonProject2/control_dir/Scripts" vcs="Git" />
   </component>
