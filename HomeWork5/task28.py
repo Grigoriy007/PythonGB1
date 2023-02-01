@@ -67,7 +67,7 @@ def hod_bot_O(my_list):
     if str(my_list[enter_hod]) not in 'XO':
         my_list[enter_hod] = 'O'
     else:
-        return bot(my_list)
+        return hod_bot_O(my_list)
     print(f'Ход бота {enter_hod+1}')
     return my_list
 
@@ -96,6 +96,11 @@ def main_game(any_list):
                     break
             any_list = hod_bot_O(any_list)
             visual_tictactoe(any_list)
+            if i > 0:
+                tmp = control_win(any_list)
+                if tmp:
+                    print(f'{tmp} победил!!!')
+                    break
         else:
             any_list = hod_bot_O(any_list)
             visual_tictactoe(any_list)
@@ -109,6 +114,11 @@ def main_game(any_list):
                     break
             any_list = hod_human_X(any_list)
             visual_tictactoe(any_list)
+            if i > 0:
+                tmp = control_win(any_list)
+                if tmp:
+                    print(f'{tmp} победил!!!')
+                    break
 
 
 tictactoe = list(range(1, 10))

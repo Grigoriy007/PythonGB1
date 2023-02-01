@@ -6,7 +6,8 @@ with open(path, 'r', encoding='UTF-8') as file:
 # file.close()
 
 for i in range(len(new_file)):
-    new_file[i] = int(new_file[i].replace(r'\n', ''))
+    # new_file[i] = int(new_file[i].replace(r'\n', ''))
+    new_file[i] = int(new_file[i].strip())
     # print(new_file[i])
 
 print(new_file)
